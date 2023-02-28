@@ -35,7 +35,7 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
     <input type="text" name="nome" placeholder="Digite o nome completo" autofocus value="<?php echo $row_usuario['nome']; ?>"><br>
 
     <label for="">E-mail:</label>
-    <input type="text" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['email']; ?>">
+    <input type="text" name="email" placeholder="Digite o seu melhor e-mail" value="<?php echo $row_usuario['email']; ?>">
 
     <input type="submit" value="salvar">
   </form>
