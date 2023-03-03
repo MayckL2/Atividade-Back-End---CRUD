@@ -21,7 +21,7 @@ include_once("conexao.php");
   }
 
   //receber o numero da pagina
-  $pagina_atual= filter_input(INPUT_POST, 'pagina', FILTER_SANITIZE_NUMBER_INT);
+  $pagina_atual= filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
   $pagina= (!empty($pagina_atual)) ? $pagina_atual : 1;
 
   //setar a quantidade de itens por pagina
@@ -35,6 +35,7 @@ include_once("conexao.php");
   while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)){
     echo "<br> ID: ". $row_usuario['id']. "<br>";
     echo "Nome: ". $row_usuario['nome']. "<br>";
+    echo "CPF: ". $row_usuario['cpf']. "<br>";
     echo "E-mail: ". $row_usuario['email']. "<br>";
     echo "<a href='edit_usuario.php?id=". $row_usuario['id']. "'>Editar</a> <br>";
     echo "<a href='pro_apagar_usuario.php?id=". $row_usuario['id']. "'>Apagar</a> <hr>";
