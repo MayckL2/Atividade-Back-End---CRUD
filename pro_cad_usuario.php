@@ -48,17 +48,17 @@ if (strlen($cpf) == 11) {
         header("location: index.php");
       } else {
         $_SESSION['msg'] = "<p style='color:red;'>USUARIO NAO FOI CADASTRO</p>";
-        header("location: cad_usuario.php");
+        header("location: cadastro.php");
       }
     }
   } else {
     echo "<p class='invalido'>CPF INVALIDO!</p>";
-    echo "<a href='index.php'>VOLTAR</a>";
+    echo "<a href='cadastro.php'>VOLTAR</a>";
     unset($_SESSION['cpf']);
   }
 } else {
   echo "<p class='invalido'>CPF INVALIDO!</p>";
-  echo "<a href='index.php'>VOLTAR</a>";
+  echo "<a href='cadastro.php'>VOLTAR</a>";
   unset($_SESSION['cpf']);
 }
 

@@ -1,0 +1,83 @@
+body{
+  background-color: rgb(78, 0, 78);
+  color: white;
+  font-family: sans-serif;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0px;
+}
+a{
+  text-decoration: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 20px;
+  color: blue;
+  transition: all 0.5s;
+}
+a:hover{
+  padding: 5px 20px;
+  border-radius: 0px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 20px;
+  gap: 10px;
+  background-color: purple;
+  box-shadow: 1px 5px 20px black;
+}
+form label{
+  font-size: 30px;
+}
+form input{
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  font-weight: bold;
+  color: purple;
+  transition: all 0.5s;
+}
+form input:focus{
+  outline: none;
+  border-radius: 0px;
+}
+form input[type= "submit"]{
+  width: 60%;
+  border: none;
+  color: purple;
+  margin: 30px 0px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+form input[type= "submit"]:hover{
+  border-radius: 0px;
+  box-shadow: 1px 1px 10px white;
+}
+.user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.user p{
+  margin: 0px;
+  font-size: 15px;
+}
+hr{
+  width: 100%;
+  color: white;
+}
+.pags{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -9,10 +9,11 @@ include_once("conexao.php");
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a href="cadastro.php">Cadastrar</a>
-  <a href="index.php">Listar</a>
+  <a href="login.php">Login</a>
 
   <?php
   if(isset($_SESSION['msg'])){
@@ -24,7 +25,7 @@ include_once("conexao.php");
   $pagina_atual= filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_NUMBER_INT);
   $pagina= (!empty($pagina_atual)) ? $pagina_atual : 1;
 
-  //setar a quantidade de itens por pagina
+  //configurar a quantidade de itens por pagina
   $qnt_result_pg= 3;
 
   //calcular o inicio visualizado
@@ -33,13 +34,17 @@ include_once("conexao.php");
   $result_usuarios= "select * from empresa limit $inicio, $qnt_result_pg";
   $resultado_usuarios= mysqli_query($con, $result_usuarios);
   while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)){
-    echo "<br> ID: ". $row_usuario['id']. "<br>";
-    echo "Nome: ". $row_usuario['nome']. "<br>";
-    echo "CPF: ". $row_usuario['cpf']. "<br>";
-    echo "E-mail: ". $row_usuario['email']. "<br>";
-    echo "<a href='edit_usuario.php?id=". $row_usuario['id']. "'>Editar</a> <br>";
-    echo "<a href='pro_apagar_usuario.php?id=". $row_usuario['id']. "'>Apagar</a> <hr>";
+    echo "<hr>";
+    echo "<div class='user'>";
+    echo "<p> ID: ". $row_usuario['id']. "</p>";
+    echo "<p>Nome: ". $row_usuario['nome']. "</p>";
+    echo "<p>CPF: ". $row_usuario['cpf']. "</p>";
+    echo "<p>E-mail: ". $row_usuario['email']. "</p>";
+    echo "<a href='edit_usuario.php?id=". $row_usuario['id']. "'>Editar</a>";
+    echo "<a href='pro_apagar_usuario.php?id=". $row_usuario['id']. "'>Apagar</a>";
+    echo "</div>";
   }
+  echo "<hr>";
 
   //Paginaçao - soma quantidade de usuarios:
   $result_pg = "select count(id) as num_result from empresa";
@@ -50,6 +55,7 @@ include_once("conexao.php");
 
   //limita os links antes e depois
   $max_links= 2;
+  echo "<div class='pags'>";
   echo "<a href= 'index.php?pagina=1'>Primeira</a>";
 
   for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant ++){
@@ -67,6 +73,7 @@ include_once("conexao.php");
   }
 
   echo "<a href= 'index.php?pagina=$quantidade_pg'>Ultima</a>";
+  echo "</div>"
   ?>
 </body>
 </html>
